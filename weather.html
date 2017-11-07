@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>weather location</title>
+	<link rel="stylesheet" href="styles/weather.css">
+	<link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+</head>
+<body class="body">	
+	<div id="map"></div>
+	<main>	
+		<h1 class="justify-content-center">Go My C<i class="ion-ios-cloud-download-outline"></i>de</h1>
+	      <h2 class="justify-content-center">Weather App</h2>
+<div id="cover"></div>
+		<p class="location"></p>
+		<div class="temperature"><p class="temp"></p><span class="degre"></span></div>
+		<p class="weather"></p>
+		<img class="icon"> 
+<p class="foot">devlopped by Moez Ben Jemaa</p>
+	</main>	
+
+	<script src="script/jquery-3.2.1.min.js"></script>
+
+	<script>
+ if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+             console.log(pos);
+         });
+
+   //appel ajax
+$.get("https://fcc-weather-api.glitch.me/api/current?lat=36.806494&lon=10.18153160", function(res) {
+        console.log(res);
+  //select elements
+        $('.location').text(res.name+" "+res.sys.country);
+        $('.temp').text(Math.round(res.main.temp));
+        $('.degre').text(" °C");
+        $('.weather').text(res.weather[0].description);
+        $('.icon').attr('');
+
+//conversition °c to F
+ $('.temperature').click(function(){
+        var $tempt =$('.degre').text();
+        console.log($tempt);
+            if ($tempt==" °C") {     
+                var $farh=Math.round((res.main.temp*1.8)+32);
+                 $('.temp').text($farh);
+                 $('.degre').text(" F");
+             } 
+             else {
+        $('.temp').text(Math.round(res.main.temp));
+        $('.degre').text(" °C");
+        }
+});
+
+ //weather icones
+	var weather=$('.weather').text();
+		console.log("fsfsfsf");
+   switch (weather) {
+       case 'few clouds':
+           $('.icon').attr('src',"https://icons8.com/preloaders/preloaders/315/Partly%20cloudy.gif")
+           break;
+        case 'scattered clouds' :
+       		$('.icon').attr('src',"images/315.gif")   
+       		break;
+       case 'light rain' :
+       		$('.icon').attr('src',"images/rain.gif")   
+       		break;
+       	case 'sunny' :
+       		$('.icon').attr('src',"https://icons8.com/preloaders/preloaders/314/Sunny.gif")   
+       		break;
+       	case 'snow' :
+       		$('.icon').attr('src',"https://icons8.com/preloaders/preloaders/313/Snow.gif")   
+       		break;
+       	case 'windy' :
+       		$('.icon').attr('src',"https://icons8.com/preloaders/preloaders/317/Windy.gif")   
+       		break;
+       	case 'snow with rain' :
+       		$('.icon').attr('src',"https://icons8.com/preloaders/preloaders/312/Snow%20with%20rain.gif")   
+       		break;
+       	case 'thunderstorm' :
+       		$('.icon').attr('src',"https://icons8.com/preloaders/preloaders/310/Storm.gif")   
+       		break;
+       	case 'lightning' :
+       		$('.icon').attr('src',"https://icons8.com/preloaders/preloaders/309/Lightning.gif")   
+       		break; 
+   }
+});
+}
+//background image
+$('.body').css("background-image", "url('images/pexels.jpeg')");
+//call to the map 
+function myMap() {
+    var mapOptions = {
+        center: new google.maps.LatLng(36.83,10.24),
+        zoom: 10,
+        mapTypeId: google.maps.MapTypeId.HYBRID
+    }
+var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+}
+
+//spinner code
+$(window).on("load",function(){
+ $('#cover').fadeOut(3500);  });
+	</script>
+
+<!-- 	//chargement du page -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(window).load(function() {
+ 		 setTimeout(function() {$(".loader").fadeOut("slow");},2000);
+		})
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>	
+</body>
+</html>
