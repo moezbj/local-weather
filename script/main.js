@@ -7,18 +7,8 @@
             };
              console.log(pos);
 //************************************appel ajax*********************************************************************
-$.get("https://fcc-weather-api.glitch.me/api/current?lat="+pos.lat"&lon="+pos.lng, function(res) {
+$.get("https://fcc-weather-api.glitch.me/api/current?lat=36.806494&lon=10.18153160", function(res) {
         console.log(res);
-//*************************************call to the map******************************************************************
-var $show=$('.show');
-$show.on("click",function myMap(){
-var mapOptions = {
-        center: new google.maps.LatLng(pos.lat,pos.lng),
-        zoom: 10,
-        mapTypeId: google.maps.MapTypeId.HYBRID
-    }
-var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-  });
   //*********************************select elements******************************************************************
         $('.location').text(res.name+" "+res.sys.country);
         $('.temp').text(Math.round(res.main.temp));
