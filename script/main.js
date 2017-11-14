@@ -54,6 +54,9 @@ function setWeatherIcon(){
 		case 'few clouds':
 		$('.icon').attr('src',"https://icons8.com/preloaders/preloaders/315/Partly%20cloudy.gif")
 		break;
+		case 'broken clouds':
+		$('.icon').attr('src',"https://icons8.com/preloaders/preloaders/307/Cloudy.gif")
+		break;
 		case 'scattered clouds' :
 		$('.icon').attr('src',"images/315.gif")   
 		break;
