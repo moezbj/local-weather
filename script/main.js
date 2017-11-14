@@ -71,7 +71,4 @@ $('.body').css("background-image", "url('images/pexels.jpeg')");
 $(window).on("load",function(){
  $('#cover').fadeOut(6000);  
 });
-//******************************chargement du page********************************************************************** 
-$(window).load(function() {
- 	setTimeout(function() {$(".loader").fadeOut("slow");},4000);
-		});
+
