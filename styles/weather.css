@@ -1,6 +1,7 @@
 body{
+/*	background-image: url(images/pexels.jpeg)*/
 	background-repeat: no-repeat;
-	 background-size: 1400px 660px;
+	background-size: cover;
 }
 main {
 	background-color: white;
@@ -72,11 +73,4 @@ span{
  width: 100%;
  height: 100%;
  z-index: 9999;
-}
-#map{
-	position: absolute;
-	top: 100px;
-	right: 50px;
-	width: 350px;
-	height: 350px;
 }
