@@ -63,8 +63,9 @@ $.get("https://fcc-weather-api.glitch.me/api/current?lat=36.806494&lon=10.181531
        		break; 
    }
          });
+}, function (error) {
+	console.log(error);
 });
-}
 //*******************************background image***********************************************************************
 $('.body').css("background-image", "url('images/pexels.jpeg')");
 // //********************************spinner code**************************************************************************
