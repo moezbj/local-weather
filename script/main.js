@@ -87,6 +87,6 @@ function setWeatherIcon(){
 // 
 // //********************************spinner code**************************************************************************
 $(window).on("load",function(){
- $('#cover').fadeOut(6000);  
+ $('#cover').fadeOut(2000);  
 });
 
