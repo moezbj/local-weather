@@ -15,7 +15,7 @@ This is a small web application wich does the following:
 
 The following screenshot shows my App:
 <p align="center">
-    <img src="images/screenshot.png">
+    <img src="images/screenshot.PNG">
     
 
 </p>
